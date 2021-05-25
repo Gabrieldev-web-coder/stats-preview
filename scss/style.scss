@@ -35,14 +35,17 @@ body{
     display: grid;
     place-content: center;
     margin: 20vh 5%;
+    //% and vh because the width of viewport always change, and that values need keep changing too 
     border-radius: 2%;
+    /* Many people don't use px for be a fixed value, but depends of situacion know to use them,
+       in this case, i want the card don't growh more than 573px for a better consistent */
     max-width: 573px;
     .card__body{
         padding: 5%;
         border-radius: 0 0 2% 2%;
         background-color: nth($primaryColors,2);
     }
-    //**Specify the color into the h1 with a tag strong**
+    //**Specify the color into the h1 with a tag <strong>**
     .card__text{
         .card__h1{
             color:nth($neutralColors,1);
@@ -57,7 +60,8 @@ body{
         margin: 1rem;
     }
 }
-//**stats styles**
+//**Stats styles**
+
 #stats{
     .stats__container{
         display: flex;
@@ -76,7 +80,8 @@ body{
         }
     }
 }
-//**media queries**
+//**Media queries**
+
 @media screen and (min-width:579px){
     #stats{
         display: flex;
@@ -89,6 +94,9 @@ body{
     figure{border-radius: 2%;}
     img{border-radius: 0% 2% 2% 0%;}
     #card{
+        animation-name: body-animation;
+        animation-duration: 1s;
+        position: relative;
         text-align: left;
         grid-template-columns: 50% 50%;
         grid-template-areas:
@@ -96,20 +104,77 @@ body{
         .card__body{
             grid-area: body;
             border-radius: 2% 0 0 2%;
-            .card__h1{margin: 2rem 1rem;}
-            .card__p{ margin: 2rem 1rem;}
-        }
+            .card__text{
+                opacity: 0;
+                position: relative;
+                animation-name: card-text;
+                animation-duration: 1s;
+                animation-delay: .8s;
+                animation-fill-mode: forwards;
+                .card__h1{margin: 2rem 1rem;}
+                .card__p{ margin: 2rem 1rem;}
+            }
+    }
         max-width: 930px;
 }
 
-    #stats{
-        font-size: .6rem;
-        grid-area: stat;
-        flex-direction: row;
-        justify-content: end;
-        .stats__container{
-            margin: 1rem;
-        }
+#stats{
+    opacity: 0;
+    position: relative;
+    animation-name: stats-animation;
+    animation-duration: 1s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    font-size: .6rem;
+    grid-area: stat;
+    flex-direction: row;
+    justify-content: end;
+    .stats__container{
+        margin: 1rem;
+        cursor: pointer;
+        position: relative;
+        top: 0;
+    }
+    .stats__container:hover{
+        transition: .5s;
+        top: -10px;
+        
+       
+    }
+}
+
+//** Animations :) because looks good, and this challenge is a bit easy **
+
+@keyframes body-animation{
+    from{
+        opacity: .1;
+        top: -200px;
     }
 
+    to{
+        opacity: 1;
+        top: 0;
+    }
+}
+
+@keyframes card-text{
+    from{
+        opacity: 0;
+        top: -50px;
+    }
+    to{
+        opacity: 1;
+        top: 0;
+    }
+}
+
+@keyframes stats-animation{
+    from{
+        top: -20px;
+    }
+    to{
+        opacity: 1;
+        top: 0;
+    }
+}
 }
