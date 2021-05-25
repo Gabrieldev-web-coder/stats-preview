@@ -12,33 +12,37 @@ $fonts: 'Inter',sans-serif, 'Lexend Deca', sans-serif;
 figure{
     background-color: nth($primaryColors,2);
 }
-
+//**I changed the image original adding the color specify, and a filter contrast**
 img{
     width: 100%;
+    height: 100%;
     border-radius: 2% 2% 0% 0%;
     filter: contrast(1.5);
 }
-
+//**Body base styles**
 body{
     font-family: nth($fonts,1);
     color: nth($neutralColors,2);
     text-align: center;
     background-color: nth($primaryColors,1);
+    display: flex;
+    justify-content: center;
 }
 
 
-
+//**Card and components of he styles**
 #card{
     display: grid;
     place-content: center;
-    margin: 25% 5%;
+    margin: 20vh 5%;
     border-radius: 2%;
+    max-width: 573px;
     .card__body{
         padding: 5%;
         border-radius: 0 0 2% 2%;
         background-color: nth($primaryColors,2);
     }
-    //Specify the color into the h1 with a tag strong
+    //**Specify the color into the h1 with a tag strong**
     .card__text{
         .card__h1{
             color:nth($neutralColors,1);
@@ -53,7 +57,7 @@ body{
         margin: 1rem;
     }
 }
-
+//**stats styles**
 #stats{
     .stats__container{
         display: flex;
@@ -71,4 +75,41 @@ body{
             margin: .5rem;
         }
     }
+}
+//**media queries**
+@media screen and (min-width:579px){
+    #stats{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width:1024px){
+    figure{border-radius: 2%;}
+    img{border-radius: 0% 2% 2% 0%;}
+    #card{
+        text-align: left;
+        grid-template-columns: 50% 50%;
+        grid-template-areas:
+        "body stat";
+        .card__body{
+            grid-area: body;
+            border-radius: 2% 0 0 2%;
+            .card__h1{margin: 2rem 1rem;}
+            .card__p{ margin: 2rem 1rem;}
+        }
+        max-width: 930px;
+}
+
+    #stats{
+        font-size: .6rem;
+        grid-area: stat;
+        flex-direction: row;
+        justify-content: end;
+        .stats__container{
+            margin: 1rem;
+        }
+    }
+
 }
