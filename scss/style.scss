@@ -1,7 +1,7 @@
 $primaryColors:hsl(233, 47%, 7%),hsl(244, 38%, 16%),hsl(277, 64%, 61%);
 $neutralColors:hsl(0, 0%, 100%),hsla(0, 0%, 100%, 0.75),hsla(0, 0%, 100%, 0.6);
 $bodyFontSize:15px;
-$fonts: font-family 'Inter', sans-serif, font-family 'Lexend Deca', sans-serif;
+$fonts: 'Inter',sans-serif, 'Lexend Deca', sans-serif;
 
 *{
     margin: 0;
@@ -9,3 +9,66 @@ $fonts: font-family 'Inter', sans-serif, font-family 'Lexend Deca', sans-serif;
     box-sizing: border-box;
 }
 
+figure{
+    background-color: nth($primaryColors,2);
+}
+
+img{
+    width: 100%;
+    border-radius: 2% 2% 0% 0%;
+    filter: contrast(1.5);
+}
+
+body{
+    font-family: nth($fonts,1);
+    color: nth($neutralColors,2);
+    text-align: center;
+    background-color: nth($primaryColors,1);
+}
+
+
+
+#card{
+    display: grid;
+    place-content: center;
+    margin: 25% 5%;
+    border-radius: 2%;
+    .card__body{
+        padding: 5%;
+        border-radius: 0 0 2% 2%;
+        background-color: nth($primaryColors,2);
+    }
+    //Specify the color into the h1 with a tag strong
+    .card__text{
+        .card__h1{
+            color:nth($neutralColors,1);
+            strong{
+                color: nth($primaryColors,3);
+            }
+        }
+    }
+    .card__p{
+        font-size: 15px;
+        line-height: 1.5rem;
+        margin: 1rem;
+    }
+}
+
+#stats{
+    .stats__container{
+        display: flex;
+        flex-direction: column;
+        margin: 2rem;
+        .stats__count{
+            font-weight: 700;
+            font-size: 2em;
+            font-family: nth($fonts,3);
+            color: nth($neutralColors,1);
+            margin: .5rem;
+        }
+        .stats__span{
+            text-transform: uppercase;
+            margin: .5rem;
+        }
+    }
+}

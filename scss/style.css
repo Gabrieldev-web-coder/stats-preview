@@ -4,4 +4,74 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+figure {
+  background-color: #1b1938;
+}
+
+img {
+  width: 100%;
+  border-radius: 2% 2% 0% 0%;
+  -webkit-filter: contrast(1.5);
+          filter: contrast(1.5);
+}
+
+body {
+  font-family: "Inter";
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  background-color: #090b1a;
+}
+
+#card {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  margin: 25% 5%;
+  border-radius: 2%;
+}
+
+#card .card__body {
+  padding: 5%;
+  border-radius: 0 0 2% 2%;
+  background-color: #1b1938;
+}
+
+#card .card__text .card__h1 {
+  color: white;
+}
+
+#card .card__text .card__h1 strong {
+  color: #aa5cdb;
+}
+
+#card .card__p {
+  font-size: 15px;
+  line-height: 1.5rem;
+  margin: 1rem;
+}
+
+#stats .stats__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 2rem;
+}
+
+#stats .stats__container .stats__count {
+  font-weight: 700;
+  font-size: 2em;
+  font-family: "Lexend Deca";
+  color: white;
+  margin: .5rem;
+}
+
+#stats .stats__container .stats__span {
+  text-transform: uppercase;
+  margin: .5rem;
+}
 /*# sourceMappingURL=style.css.map */
